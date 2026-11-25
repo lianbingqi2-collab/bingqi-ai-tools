@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142824">
+  <title>ESS Finder · 数据检索台</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ess-login.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="rail" aria-label="工作台信息">
+      <div class="identity"><span class="identity-icon">e<span class="identity-spark">✳</span></span><span class="identity-text"><strong>ess finder</strong><small>DATA WORKSPACE</small></span></div>
+      <div class="rail-body"><p class="rail-label">WORKSPACE</p><div class="rail-item active"><span class="rail-symbol">⌕</span> 数据检索</div><div class="rail-item muted"><span class="rail-symbol">↗</span> 结果导出</div></div>
+      <div class="rail-bottom"><span class="rail-dot"></span><div><strong>公开演示版</strong><small>虚构示例 · 可交互体验</small></div></div>
+    </aside>
+
+    <div class="page">
+      <header class="topbar"><span class="breadcrumb">工作台 <span>/</span> 数据检索</span><span class="top-tag"><span></span> ESS · DEMO</span></header>
+      <main class="content">
+        
+        <div class="intro"><div class="overline"><span class="line"></span> INTELLIGENT SEARCH</div><h1>找数据，<em>说一句就好。</em></h1><p>直接描述你要找的车、时间或场景。体验需求输入、查询条件展示、结果筛选与导出；此页仅使用虚构示例。</p></div>
+
+        
+
+        <div class="work-grid">
+          <section class="composer" aria-labelledby="search-title"><div class="card-top"><span class="card-icon">✳</span><div><p class="card-kicker">NEW SEARCH</p><h2 id="search-title">描述你的需求</h2></div><span class="card-index">01 / 02</span></div>
+            <label class="sr-only" for="description">数据检索需求</label><textarea id="description" placeholder="例如：找 DEMO-001 这辆车在 2026-09-22 12:59:46 附近的数据，给我 MViz 链接"></textarea>
+            <div class="image-input"><label class="image-upload" for="image-file">选择截图（预览）</label><input id="image-file" type="file" accept="image/png,image/jpeg,image/webp,image/heic" hidden><span>演示仅显示文件名，不识别、不上传图片</span><span id="image-state" role="status"></span></div>
+            <div class="composer-bottom"><div class="hint"><span class="hint-dot"></span> 不确定的车号会先核实，不猜车型前缀</div><button id="parse" class="primary">开始检索 <span aria-hidden="true">↗</span></button></div>
+          </section>
+
+          <aside class="guide"><div class="guide-top"><span class="guide-glyph">↳</span><p>不知道怎么描述？</p></div><h3>从一个例子开始</h3><div class="example-list"><button data-example="找 DEMO-001 这辆车 2026-09-22 12:59:46 的数据的 mviz 链接"><span class="example-icon">01</span><span>按车号和精确时间找 MViz</span><span aria-hidden="true">↗</span></button><button data-example="查找示例项目最近 7 天杭州采集的 Event，给我 ESS 和 MViz 链接"><span class="example-icon">02</span><span>按项目、地点和时间找 Event</span><span aria-hidden="true">↗</span></button></div><p class="guide-note">点击例句会填入左侧，你可以继续修改。</p></aside>
+        </div>
+
+        <section class="results" aria-labelledby="results-title"><div class="results-head"><div><div class="overline small"><span class="line"></span> SEARCH OUTPUT</div><h2 id="results-title">检索结果 <span id="count">—</span></h2></div><div class="exports"><button id="links" disabled>复制链接</button><button id="csv" disabled>CSV</button><button id="xlsx" disabled>导出 Excel <span aria-hidden="true">↗</span></button></div></div>
+          <div id="message" class="message" role="status">准备就绪。输入需求后开始检索。</div><div id="agent-summary" class="agent-summary" hidden></div>
+          <div id="empty" class="empty"><div class="empty-mark"><span>⌕</span></div><strong>结果会出现在这里</strong><p>你可以打开 ESS / MViz 链接，或将结果导出为表格。</p></div><div id="results-list" class="results-list"></div>
+        </section>
+        <p class="guide-note">作品演示版：下列记录为虚构示例；不连接 ESS、飞书或模型，未提供真实内部链接。</p>
+      </main>
+      <footer>ESS FINDER <span>·</span> BUILT FOR DATA DISCOVERY</footer>
+    </div>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
